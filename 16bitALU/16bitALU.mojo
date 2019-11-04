@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="16bitALU" board="Mojo V3" language="Lucid">
   <files>
+    <src>testcmp.luc</src>
     <src>boolean.luc</src>
+    <src>bitshifter.luc</src>
     <src>testadd.luc</src>
     <src>cmp.luc</src>
     <src>adder.luc</src>
