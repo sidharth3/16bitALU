@@ -1,10 +1,17 @@
 module boolean (
-    input clk,  // clock
-    input rst,  // reset
-    output out
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output c[16]
   ) {
 
   always {
-    out = 0;
+    case(alufn){
+      6b011110: c = a | b;  
+      6b010110: c = a ^ b;  
+      6b011000: c = a & b;          
+      6b011010: c = a;      
+      default: c = 0;
+      }
   }
 }

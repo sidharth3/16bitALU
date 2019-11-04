@@ -1,0 +1,81 @@
+module testbool (
+    input clk,  // clock
+    input rst,  // reset
+    input start,
+    output status[2] 
+    
+  ) {
+  
+  dff counter[4](.clk(clk), .rst(rst));
+  
+  .clk(clk) {
+    .rst(rst) {
+      fsm state = {IDLE, CASE, CORRECT, WRONG};  
+    }    
+  }
+  boolean bool;
+    
+  always {  
+    status = 0;
+    bool.a = 0;
+    bool.b = 0;
+    bool.alufn = 6d0;
+    
+    if(start == 0){ 
+      state.d = state.IDLE;
+    }
+  
+    
+    case(state.q) {
+      state.IDLE:
+        status = 0;
+        if(start == 1) {
+          state.d = state.CASE;
+        }
+      state.CASE:
+        case(counter.q) {
+        
+        // Test for 42 and 24
+          
+          1:bool.alufn = 6b011000; //AND
+            bool.a = 16b0000000000100111; //39
+            bool.b = 16b0000000000001100; //12
+            
+            if (bool.c != 16b0000000000000100) {
+              state.d = state.WRONG;
+            }
+            
+          2:bool.alufn = 6b011110; //OR
+            bool.a = 16b0000000000100111; //39
+            bool.b = 16b0000000000001100; //12
+            
+            if (bool.c != 16b0000000000111010) {
+              state.d = state.WRONG;
+            }
+            
+          3:bool.alufn = 6b010110; //XOR
+            bool.a = 16b0000000000100111; //39
+            bool.b = 16b0000000000001100; //12
+            
+            if (bool.c != 16b0000000000110010) {            
+              state.d = state.WRONG;
+            }
+            
+          4:bool.alufn = 6b011010; //"A"
+            bool.a = 16b0000000000100111; //39
+            if (bool.c != 16b0000000000100111) {
+              state.d = state.WRONG;
+            }
+         5:state.d = state.CORRECT;            
+        }
+        
+      state.CORRECT:
+        status = 1;
+        
+      state.WRONG:
+        status = 2;
+    }
+    
+    counter.d = counter.q + 1;
+  }
+}
