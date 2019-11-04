@@ -1,0 +1,22 @@
+module cmp (
+    input alufn[6], //input from ALU
+    input a[16],
+    input b[16],
+    output c[16] //output to ALU
+  ) {
+sig comp;
+  always {
+    case(alufn[2:1]){
+       b01:
+       comp = a==b; //Compare equal to
+       b10:
+       comp = a<b; //Compare less than
+       b11:
+       comp = a<=b; //Compare less than equal
+       default:
+       comp = b0;
+    }
+    c[0]=comp; // least significant bit of cmp 
+    c[15:1] = 7b0; // other 7 bits are  0
+  }
+}

@@ -3,6 +3,7 @@
   <files>
     <src>boolean.luc</src>
     <src>testadd.luc</src>
+    <src>cmp.luc</src>
     <src>adder.luc</src>
     <src>testbool.luc</src>
     <src top="true">mojo_top.luc</src>
