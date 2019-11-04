@@ -1,0 +1,37 @@
+module adder (
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output sumresult[16],
+    output z,
+    output v,
+    output n,
+    output car
+  ) {
+sig sum[17];
+sig diff[17];
+  always {
+    case(alufn[1:0]){
+      b00:
+        sum =a+b;
+        diff = a-b;
+      b01:
+        sum =a-b;
+        diff = a-b;
+      b10:
+        sum =a*b;
+        diff = a-b;
+      b11:
+        sum =a-((a/b)*b);
+        diff = a-b;
+      default:
+        sum = a+b;
+        diff = a-b;
+    }
+      sumresult = sum[15:0];
+      n = diff[15];  
+      v = (a[15] & ~b[15] & ~diff[15]) | (~a[15] & b[15] & diff[15]);
+      car = (a[15] & b[15] & ~sum[15]) | (~a[15] & ~b[15] & sum[15]);
+      z = ~|diff;
+  }
+}
