@@ -122,8 +122,21 @@ module testadd (
             adder.b = 16h0;
             if(adder.sumresult!=0){
               state.d=state.FAIL;}
-                                 
-          13:
+          13://multiply two numbers no overflow
+            adder.alufn = 6b10;
+            adder.a = 16b0000000000000010;//2
+            adder.b = 16b0000000000000100;//4
+            if(adder.sumresult!=16b000000000000100){//8
+              state.d = state.FAIL;
+            }    
+          14://multiply two numbers overflow
+            adder.alufn = 6b10;
+            adder.a = 16b0100000000000000;
+            adder.b = 16b0000000000000010;
+            if(adder.sumresult!=16b1000000000000000){
+                state.d = state.FAIL;
+              }                
+          15:
              state.d = state.PASS;            
         }
       state.PASS:
