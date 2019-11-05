@@ -1,10 +1,171 @@
-module testcmp (
+module compareTester(
     input clk,  // clock
     input rst,  // reset
-    output out
+    input start,
+    output status[2] 
+    
   ) {
+  
+  dff counter[4](.clk(clk), .rst(rst));
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    .rst(rst) {
+      fsm state = {IDLE, CASE, CORRECT, WRONG};  
+    }    
+  }
+  cmp cmp;
+    
+  always {  
+    status = 0;
+    cmp.a = 0;
+    cmp.b = 0;
+    cmp.alufn = 6d0;
+    
+    if(start == 0){ 
+      state.d = state.IDLE;
+    }
+    
+    // Status 0 - Start
+    // Status 1 - Correct
+    // Status 2 - Wrong
+    
+    case(state.q) {
+      state.IDLE:
+        status = 0;
+        if(start == 1) {
+          state.d = state.CASE;
+        }
+      state.CASE:
+        case(counter.q) {   
+         
+          //Test for A > B
+          
+          // If 42 = 24          
+          1:cmp.alufn = 6b110011;        //CMPEQ
+            cmp.a = 16b0000000000101010; //42
+            cmp.b = 16b0000000000011000; //24
+            
+            if(cmp.c != 0) {
+              state.d = state.WRONG;
+            }            
 
-  always {
-    out = 0;
+          // If 42 < 24  
+          2:cmp.alufn = 6b110101;        //CMPLT
+            cmp.a = 16b0000000000101010; //42
+            cmp.b = 16b0000000000011000; //24
+            
+            if(cmp.c != 0) {
+              state.d = state.WRONG;
+            }             
+
+          // If 42 <= 24  
+          3:cmp.alufn = 6b110111;        //CMPLE
+            cmp.a = 16b0000000000101010; //42
+            cmp.b = 16b0000000000011000; //24
+            
+            if(cmp.c != 0) {
+              state.d = state.WRONG;
+            } 
+            
+          // Test for 0 and 0
+
+          // If 0 = 0 
+          4:cmp.alufn = 6b110011;        //CMPEQ
+            cmp.a = 16b0000000000000000; //0
+            cmp.b = 16b0000000000000000; //0
+            
+            if(cmp.c != 1) {
+              state.d = state.WRONG;
+            }                                      
+            
+          // If 0 < 0
+          5:cmp.alufn = 6b110101;        //CMPLT
+            cmp.a = 16b0000000000000000; //0
+            cmp.b = 16b0000000000000000; //0
+            
+            if(cmp.c != 0) {
+              state.d = state.WRONG;
+            }            
+            
+          // If 0 <= 0
+          6:cmp.alufn = 6b110111;        //CMPLE
+            cmp.a = 16b0000000000000000; //0
+            cmp.b = 16b0000000000000000; //0
+            
+            if(cmp.c != 1) {
+              state.d = state.WRONG;
+            }   
+            
+          // Test for 16hFFFF and 16hFFFF    
+            
+          // If FF = FF 
+          7:cmp.alufn = 6b110011;        //CMPEQ
+            cmp.a = 16b1111111111111111; //16hFFFF
+            cmp.b = 16b1111111111111111; //16hFFFF
+            if(cmp.c != 1) {
+              state.d = state.WRONG;
+            }
+
+          // If FF < FF 
+          8:cmp.alufn = 6b110101;        //CMPLT
+            cmp.a = 16b1111111111111111; //16hFFFF
+            cmp.b = 16b1111111111111111; //16hFFFF
+            
+            if(cmp.c != 0) {
+              state.d = state.WRONG;
+            }  
+
+          // If FF <= FF 
+          9:cmp.alufn = 6b110111;        //CMPLE
+            cmp.a = 16b1111111111111111; //16hFFFF
+            cmp.b = 16b1111111111111111; //16hFFFF
+            
+            if(cmp.c != 1) {
+              state.d = state.WRONG;
+            }    
+          
+       
+          
+          // A < B
+          // If 21 = 42 
+         10:cmp.alufn = 6b110011;        //CMPEQ
+            cmp.a = 16b0000000000010101;    //21
+            cmp.b = 16b0000000000101010; //42
+            
+            if(cmp.c != 0) {
+              state.d = state.WRONG;
+            }  
+
+          // If 21 < 42 
+         11:cmp.alufn = 6b110101;        //CMPLT
+            cmp.a = 16b0000000000010101;    //21
+            cmp.b = 16b0000000000101010; //42
+            
+            if(cmp.c != 1) {
+              state.d = state.WRONG;
+            } 
+
+          // If 21 <= 42 
+         12:cmp.alufn = 6b110111;        //CMPLE
+            cmp.a = 16b0000000000010101;    //21
+            cmp.b = 16b0000000000101010; //42
+            
+            if(cmp.c != 1) {
+              state.d = state.WRONG;
+            }                                                                          
+
+          13:state.d = state.CORRECT;            
+        }
+        
+      state.CORRECT:
+        status = 1;
+        
+      state.WRONG:
+        status = 2;
+    }
+    
+    counter.d = counter.q + 1;
   }
 }

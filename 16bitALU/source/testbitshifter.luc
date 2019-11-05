@@ -1,0 +1,121 @@
+module testbitshifter (
+    input clk,  // clock
+    input rst,  // reset
+    input start,
+    output status[2] // 0 = not done; 1 = pass; 2 = fail
+    
+  ) {
+  
+  dff test_counter[5](.clk(clk), .rst(rst));
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes c of reset at the same time.
+    .rst(rst) {
+      fsm state = {IDLE, TEST, PASS, FAIL};  
+    }    
+  }
+  bitshifter shifter1;
+    
+  always { 
+    status = 0;
+    shifter1.a = 0;
+    shifter1.b = 0;
+    shifter1.alufn = 6d0;
+    
+    if(start == 0){ 
+      state.d = state.IDLE;
+    }
+    
+    case(state.q) {
+      state.IDLE:
+        status = 0;
+        if(start == 1) {
+          state.d = state.TEST;
+        }
+      state.TEST:
+        case(test_counter.q) {
+          5b00000: //shifts FFFF (1111x4) by 15 to the left
+            shifter1.alufn = 6b100000;
+            shifter1.a = 16hFFFF;
+            shifter1.b = 16hF;
+            
+            if(shifter1.c != 16h8000) {
+              state.d = state.FAIL;
+            }
+          5b00001: //shifts (1111x4) by 15 to the right
+            shifter1.alufn = 6b100001;
+            shifter1.a = 16hFFFF;
+            shifter1.b = 16hF;
+            
+            if(shifter1.c != 16h1) {
+              state.d = state.FAIL;
+            } 
+          5b00010: //arithmatic shift (1111x4) by 15 to the right
+            shifter1.alufn = 6b100001;
+            shifter1.a = 16hFFFF;
+            shifter1.b = 16hF;
+            
+            if(shifter1.c != 16hFFFF) {
+              state.d = state.FAIL;
+            } 
+          5b00011: //shifts 0 by 15 to the left
+            shifter1.alufn = 6b100000;
+            shifter1.a = 16h0;
+            shifter1.b = 16hF;
+            
+            if(shifter1.c != 16h0) {
+              state.d = state.FAIL;
+            }
+          5b00100: //shifts 0 by 15 to the right
+            shifter1.alufn = 6b100001;
+            shifter1.a = 16h0;
+            shifter1.b = 16hF;
+            
+            if(shifter1.c != 16h0) {
+              state.d = state.FAIL;
+            }
+          5b00101: //arithmatic shift 0 by 15 to the right
+            shifter1.alufn = 6b100011;
+            shifter1.a = 16h0;
+            shifter1.b = 15hF;
+            
+            if(shifter1.c != 16h0) {
+              state.d = state.FAIL;
+            }
+          5b00110: //shifts 1010101111001101 by 8 to the left
+            shifter1.alufn = 6b100000;
+            shifter1.a = 16hABCD;
+            shifter1.b = 16h8;
+            
+            if(shifter1.c != 16hCD00) {
+              state.d = state.FAIL;
+            }                         
+          5b00111: //shifts 1100110111101111 by 8 to the right
+            shifter1.alufn = 6b100001;
+            shifter1.a = 16hCDEF;
+            shifter1.b = 16h8;
+            
+            if(shifter1.c != 16hCD) {
+              state.d = state.FAIL;
+            }
+          5b01000: //arithmatic shift 0011000000000101 by 8 to the right
+            shifter1.alufn = 6b100011;
+            shifter1.a = 16h3005;
+            shifter1.b = 16h8;
+            
+            if(shifter1.c != 16h0030) {
+              state.d = state.FAIL;
+            }                               
+          5b11111:
+             state.d = state.PASS;            
+        }
+      state.PASS:
+        status = 1;
+      state.FAIL:
+        status = 2;
+    }
+    
+    test_counter.d = test_counter.q + 1;
+  }
+}

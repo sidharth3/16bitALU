@@ -4,7 +4,7 @@ module cmp (
     input b[16],
     output c[16] //output to ALU
   ) {
-sig comp;
+  sig comp;
   always {
     case(alufn[2:1]){
        b01:

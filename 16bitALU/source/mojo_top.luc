@@ -19,11 +19,33 @@ module mojo_top (
   ) {
   
   sig rst;                  // reset signal
+  sig a[16];
+  sig b[16];
+  sig alufn[6];
+  //dff test_counter[8](.clk(clk), .rst(rst));
+  alu alu;
+  testbool booleanTester;
+  testadd adderTester;
+  compareTester compareTester;
+  testbitshifter shifterTester;
+  multi_seven_seg seg;
+  failtests errorTester;
   
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
+    
+    .rst(rst) {
+      
+      // states alternate between each possible alu operation based on the buttons pressed
+      // ERROR simulates the error case for adder.
+      
+      fsm state = {IDLE,MANUAL,AUTO};
+      fsm innerState ={IDLE,ADDER,BOOLEAN,COMPARE,SHIFTER,ERROR};
+      dff aMemory[16];
+      dff bMemory[16];
+    }
   }
   
   always {
@@ -38,5 +60,107 @@ module mojo_top (
     io_led = 3x{{8h00}};    // turn LEDs off
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
-  }
-}
+    
+    seg.values = {4d15, 4d15, 4d15, 4d15};
+    io_seg = ~seg.seg;
+    io_sel = ~seg.sel;
+    
+    
+    alu.a=0;
+    alu.b=0;
+    alu.alufn=0;
+    seg.values = {4d15, 4d15, 4d15, 4d15};
+    seg.clk=clk;
+    seg.rst=rst;
+    adderTester.clk = clk;
+    adderTester.rst=rst;
+    adderTester.start=0;
+    booleanTester.clk=clk;
+    booleanTester.rst=rst;
+    booleanTester.start = 0;
+    compareTester.clk = clk;
+    compareTester.rst = rst;
+    compareTester.start=0;
+    shifterTester.clk=clk;
+    shifterTester.rst=rst;
+    shifterTester.start=0;
+    errorTester.clk=clk;
+    errorTester.rst=rst;
+    errorTester.start=0;
+    // Manual testing (dip switches used)
+    
+    if(io_dip[2][7]==1){
+      state.d= state.AUTO;
+    }else{
+      state.d = state.MANUAL;}
+    case(state.q){
+      state.MANUAL:
+        if(io_dip[2][6]==1&io_button[1]==1){
+          aMemory.d = c{io_dip[1],io_dip[0]};
+        }//a
+        if(io_dip[2][6]==0&io_button[1]==1){
+          bMemory.d= c{io_dip[1],io_dip[0]};}
+        a[15:0] = aMemory.q;
+        b[15:0] = bMemory.q;
+        alufn = io_dip[2][5:0];
+        alu.a = a;
+        alu.b = b;
+        alu.alufn = alufn;
+        io_led[0]=alu.c[7:0];
+        io_led[1]=alu.c[15:8];
+      
+      state.AUTO:
+        innerState.d=innerState.IDLE;
+        if(io_button[1]==1){//center
+          innerState.d= innerState.ADDER;}
+        if(io_button[0]==1){//up
+          innerState.d=innerState.BOOLEAN;}
+        if(io_button[2]==1){//down
+        innerState.d=innerState.COMPARE;}
+        if(io_button[3]==1){//left
+        innerState.d= innerState.SHIFTER;}
+        if(io_button[4]==1){//right
+        innerState.d= innerState.ERROR;}
+        case(innerState.q){
+          innerState.IDLE:
+            io_led[0]=1;
+          innerState.ADDER:
+             adderTester.start =1;
+            if(adderTester.status==1){
+             seg.values = {4d10, 4d11, 4d5, 4d5};//PASS
+              } else if (adderTester.status==2){
+            seg.values = {4d13, 4d11, 4d1, 4d4};//FAIL
+              } 
+          innerState.BOOLEAN:
+            booleanTester.start=1;
+            if(booleanTester.status==1){
+              seg.values = {4d10, 4d11, 4d5, 4d5}; //PASS
+            }else if (booleanTester.status==2){
+              seg.values = {4d13, 4d11, 4d1, 4d4}; //FAIL
+            }
+          innerState.COMPARE:
+            compareTester.start = 1;
+            if(compareTester.status==1){
+            seg.values = {4d10, 4d11, 4d5, 4d5}; //PASS
+            }else if (compareTester.status==2){
+            seg.values = {4d13, 4d11, 4d1, 4d4}; //FAIL
+            }
+          innerState.SHIFTER:
+            shifterTester.start = 1;
+            if(shifterTester.status==1){
+            seg.values = {4d10, 4d11, 4d5, 4d5}; //PASS
+            }else if (shifterTester.status==2){
+            seg.values = {4d13, 4d11, 4d1, 4d4}; //FAIL
+            }
+          innerState.ERROR:
+            errorTester.start = 1;
+            if(errorTester.status==1){
+            seg.values = {4d10, 4d11, 4d5, 4d5}; //PASS
+            }else if (shifterTester.status==2){
+            seg.values = {4d13, 4d11, 4d1, 4d4}; //FAIL
+            }
+        }
+      
+    }
+    
+  }}

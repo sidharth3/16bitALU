@@ -1,0 +1,143 @@
+module failtests(
+    input clk,  // clock
+    input rst,  // reset
+    input start,
+    output status[2] // 0 = not done; 1 = pass; 2 = fail
+    
+  ) {
+  
+  dff test_counter[5](.clk(clk), .rst(rst));
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    .rst(rst) {
+      fsm state = {IDLE, TEST, PASS, FAIL};  
+    }    
+  }
+  adder adder;
+    
+  always {  
+    status = 0;
+    adder.a = 0;
+    adder.b = 0;
+    adder.alufn = 6d0;
+    
+    if(start == 0){ 
+      state.d = state.IDLE;
+    }
+    // test cases are tested in this segment
+    // status is used to indicate the test result
+    case(state.q) {
+      state.IDLE:
+        status = 0;
+        if(start == 1) {
+          state.d = state.TEST;
+        }
+      
+      // below, we replace ADD (6h0) with SUB (6h1) and vice versa to check that
+      // A: the test-fail state can be displayed properly
+      // B: the ADD/SUB toggle is working
+      
+      state.TEST:
+        case(test_counter.q) {
+          0:
+          //negative + negative, no overflow
+          //(inverted to negative - negative)
+            adder.alufn = 6h1;
+            adder.a = 16hFFFF;
+            adder.b = 16hFFFF;
+            
+            if(adder.sumresult != 16hFFFE) {
+              state.d = state.FAIL;
+            }
+          1://negative + negative overflow
+            adder.alufn = 6h1;
+            adder.a =16h8000;
+            adder.b =16hFFFF;
+            if(adder.sumresult!=16h7FFF){
+             state.d = state.FAIL;
+            }
+          2://positive + positive no overflow
+            adder.alufn = 6h1;
+            adder.a = 16h0001;
+            adder.b = 16h0001;
+            if(adder.sumresult != 16h0002){
+            state.d= state.FAIL;}
+          3://positive + positive overflow
+            adder.alufn = 6h1;
+            adder.a = 16h7FFF;
+            adder.b = 16h0001;
+            if(adder.sumresult!=16h8000){
+            state.d=state.FAIL;}
+              
+          4://postive + negative no overflow
+            adder.alufn = 6h1;
+            adder.a = 16h0002;
+            adder.b = 16hFFFF;
+            if(adder.sumresult!=16h0001){
+            state.d=state.FAIL;}
+          5://negative + positive no overflow
+            adder.alufn = 6h1;
+            adder.a = 16hFFFF;
+            adder.b = 16h0002;
+            if(adder.sumresult!=16h0001){
+            state.d=state.FAIL;}
+         
+          6://positive - negative no overflow
+            //now positive + positive
+             adder.alufn = 6h0;
+             adder.a = 16h1;
+             adder.b = 16hffff;
+             if(adder.sumresult!=2){
+              state.d=state.FAIL;}
+          7://positive - negative overflow
+            adder.alufn = 6h0;
+            adder.a = 16h7fff;
+            adder.b = 16hffff;
+            if(adder.sumresult!=16h8000){
+              state.d=state.FAIL;}
+          8: //negative - positive no overflow
+            adder.alufn = 6h0;
+            adder.a = 16hffff;
+            adder.b = 16h1;
+            if(adder.sumresult!=16hfffe){
+              state.d=state.FAIL;}
+          9://negative - positive overflow
+            adder.alufn = 6h0;
+            adder.a = 16hfffc;
+            adder.b = 16h7fff;
+            if(adder.sumresult!=16h7ffd){
+              state.d=state.FAIL;}
+          10://negative - negative no overflow
+            adder.alufn = 6h0;
+            adder.a = 16hffff;
+            adder.b = 16hffff;
+            if(adder.sumresult!=0){
+              state.d=state.FAIL;}
+          11://positive - postive no overflow
+            adder.alufn = 6h0;
+            adder.a = 16h1;
+            adder.b = 16h1;
+            if(adder.sumresult!=0){
+            state.d=state.FAIL;}
+              
+          12://zero - zero
+            adder.alufn = 6h0;
+            adder.a = 16h0;
+            adder.b = 16h0;
+            if(adder.sumresult!=0){
+              state.d=state.FAIL;}
+                                 
+          30:
+             state.d = state.PASS;            
+        }
+      state.PASS:
+        status = 1;
+      state.FAIL:
+        status = 2;
+    }
+    
+    test_counter.d = test_counter.q + 1;
+  }
+}
