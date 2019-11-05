@@ -168,18 +168,18 @@ module compareTester_4 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_counter_q <= 1'h0;
+      M_state_q <= 1'h0;
     end else begin
-      M_counter_q <= M_counter_d;
+      M_state_q <= M_state_d;
     end
   end
   
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_state_q <= 1'h0;
+      M_counter_q <= 1'h0;
     end else begin
-      M_state_q <= M_state_d;
+      M_counter_q <= M_counter_d;
     end
   end
   

@@ -1,3 +1,4 @@
+//module which contains test cases for compare func
 module compareTester(
     input clk,  // clock
     input rst,  // reset

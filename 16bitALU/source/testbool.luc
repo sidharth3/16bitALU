@@ -1,3 +1,5 @@
+//module which contains test cases for boolean func
+
 module testbool (
     input clk,  // clock
     input rst,  // reset
@@ -35,7 +37,7 @@ module testbool (
       state.CASE:
         case(counter.q) {
         
-        // Test for 42 and 24
+        // Test for 39 and 12(two random numbers)
           
           1:bool.alufn = 6b011000; //AND
             bool.a = 16b0000000000100111; //39

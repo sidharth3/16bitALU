@@ -22,7 +22,7 @@ module mojo_top (
   sig a[16];
   sig b[16];
   sig alufn[6];
-  //dff test_counter[8](.clk(clk), .rst(rst));
+  //initialize alu and the testcase modules for each component
   alu alu;
   testbool booleanTester;
   testadd adderTester;
@@ -43,8 +43,8 @@ module mojo_top (
       
       fsm state = {IDLE,MANUAL,AUTO};
       fsm innerState ={IDLE,ADDER,BOOLEAN,COMPARE,SHIFTER,ERROR};
-      dff aMemory[16];
-      dff bMemory[16];
+      dff aValue[16];
+      dff bValue[16];
     }
   }
   
@@ -90,36 +90,38 @@ module mojo_top (
     // Manual testing (dip switches used)
     
     if(io_dip[2][7]==1){
-      state.d= state.AUTO;
+      state.d= state.AUTO; //if [2][7] is high, go to auto state
     }else{
-      state.d = state.MANUAL;}
+      state.d = state.MANUAL;
+      }//else go to manual state
     case(state.q){
       state.MANUAL:
         if(io_dip[2][6]==1&io_button[1]==1){
-          aMemory.d = c{io_dip[1],io_dip[0]};
+          aValue.d = c{io_dip[1],io_dip[0]};
         }//a
         if(io_dip[2][6]==0&io_button[1]==1){
-          bMemory.d= c{io_dip[1],io_dip[0]};}
-        a[15:0] = aMemory.q;
-        b[15:0] = bMemory.q;
-        alufn = io_dip[2][5:0];
+          bValue.d= c{io_dip[1],io_dip[0]};
+        }//b
+        a[15:0] = aValue.q;
+        b[15:0] = bValue.q;
+        alufn = io_dip[2][5:0]; // select alufn code
         alu.a = a;
         alu.b = b;
         alu.alufn = alufn;
-        io_led[0]=alu.c[7:0];
+        io_led[0]=alu.c[7:0]; // displays output
         io_led[1]=alu.c[15:8];
       
       state.AUTO:
         innerState.d=innerState.IDLE;
-        if(io_button[1]==1){//center
+        if(io_button[1]==1){//middle button
           innerState.d= innerState.ADDER;}
-        if(io_button[0]==1){//up
+        if(io_button[0]==1){//top button
           innerState.d=innerState.BOOLEAN;}
-        if(io_button[2]==1){//down
+        if(io_button[2]==1){//bottom botton
         innerState.d=innerState.COMPARE;}
-        if(io_button[3]==1){//left
+        if(io_button[3]==1){//left button
         innerState.d= innerState.SHIFTER;}
-        if(io_button[4]==1){//right
+        if(io_button[4]==1){//right button
         innerState.d= innerState.ERROR;}
         case(innerState.q){
           innerState.IDLE:

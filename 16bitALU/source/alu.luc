@@ -7,7 +7,7 @@ module alu (
     output v,
     output n
   ) {
-  
+  //initialize each module
   adder adder1;
   boolean boolean1;
   cmp compare1;
@@ -16,6 +16,7 @@ module alu (
     z = 0;
     v = 0;
     n = 0;
+    //assign a and b as inputs to each module
     adder1.alufn = alufn;
     adder1.a = a;
     adder1.b = b;
@@ -33,7 +34,7 @@ module alu (
     shifter1.b = b;
     
     case(alufn[5:4]){
-
+      //switch case to select the desired alu function
       b00:
       c = adder1.sumresult; // selects adder output 
       z = adder1.z;
@@ -46,8 +47,7 @@ module alu (
       b11:
       c = compare1.c; //selects compare output
       default:
-      c = 8b0;
+      c = 8b0; // default selects output as 0
   }
-    
 }
 }

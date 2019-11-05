@@ -1,3 +1,5 @@
+//module which contains test cases for shifter func
+
 module testbitshifter (
     input clk,  // clock
     input rst,  // reset
@@ -15,6 +17,7 @@ module testbitshifter (
       fsm state = {IDLE, TEST, PASS, FAIL};  
     }    
   }
+  //init shifter module
   bitshifter shifter1;
     
   always { 
@@ -51,7 +54,7 @@ module testbitshifter (
             if(shifter1.c != 16h1) {
               state.d = state.FAIL;
             } 
-          5b00010: //arithmatic shift (1111x4) by 15 to the right
+          5b00010: //arithmetic shift (1111x4) by 15 to the right
             shifter1.alufn = 6b100001;
             shifter1.a = 16hFFFF;
             shifter1.b = 16hF;
@@ -108,7 +111,7 @@ module testbitshifter (
               state.d = state.FAIL;
             }                               
           5b11111:
-             state.d = state.PASS;            
+             state.d = state.PASS;//reaches pass only at the end if all tests are passed            
         }
       state.PASS:
         status = 1;

@@ -1,3 +1,5 @@
+//module which contains test cases for adder func
+
 module testadd (
     input clk,  // clock
     input rst,  // reset

@@ -1,12 +1,12 @@
 module boolean (
-    input alufn[6],
+    input alufn[6],//input from ALU
     input a[16],
     input b[16],
-    output c[16]
+    output c[16]//output to alu
   ) {
 
   always {
-    case(alufn){
+    case(alufn){ // select the boolean function based on the alufn code
       6b011110: c = a | b;  
       6b010110: c = a ^ b;  
       6b011000: c = a & b;          

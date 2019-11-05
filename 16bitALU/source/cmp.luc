@@ -2,21 +2,21 @@ module cmp (
     input alufn[6], //input from ALU
     input a[16],
     input b[16],
-    output c[16] //output to ALU
+    output c[16] 
   ) {
   sig comp;
   always {
     case(alufn[2:1]){
        b01:
-       comp = a==b; //Compare equal to
+       comp = a==b; //compare equal to
        b10:
-       comp = a<b; //Compare less than
+       comp = a<b; //compare less than
        b11:
-       comp = a<=b; //Compare less than equal
+       comp = a<=b; //compare less than equal
        default:
        comp = b0;
     }
-    c[0]=comp; // least significant bit of cmp 
-    c[15:1] = 15b0; // other 15 bits are  0
+    c[0]=comp; // set lsb of cmp to operation's output 
+    c[15:1] = 15b0; // initialize other 15 bits to 0
   }
 }

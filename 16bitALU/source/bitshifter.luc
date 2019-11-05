@@ -1,18 +1,18 @@
 module bitshifter (
-    input alufn[6],
+    input alufn[6],//input from ALU
     input a[16],  
     input b[16],
-    output c[16]
+    output c[16]//output
   ) {
 
   always {
   case(alufn[1:0]){
     b00:
-    c = a << b[3:0]; //shift left
+    c = a << b[3:0]; //SHL
     b01:
-    c = a >> b[3:0]; //shift right
+    c = a >> b[3:0]; //SHR
     b11:
-    c = $signed(a)>>>b[3:0]; // arithmetic right shift
+    c = $signed(a)>>>b[3:0]; // SRA
     default:
     c = a;
   }
