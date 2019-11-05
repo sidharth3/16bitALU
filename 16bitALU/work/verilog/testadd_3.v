@@ -184,18 +184,18 @@ module testadd_3 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_state_q <= 1'h0;
+      M_test_counter_q <= 1'h0;
     end else begin
-      M_state_q <= M_state_d;
+      M_test_counter_q <= M_test_counter_d;
     end
   end
   
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_test_counter_q <= 1'h0;
+      M_state_q <= 1'h0;
     end else begin
-      M_test_counter_q <= M_test_counter_d;
+      M_state_q <= M_state_d;
     end
   end
   

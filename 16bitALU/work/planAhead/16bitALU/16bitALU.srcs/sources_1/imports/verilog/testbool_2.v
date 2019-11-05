@@ -67,7 +67,7 @@ module testbool_2 (
             M_bool_alufn = 6'h1e;
             M_bool_a = 16'h0027;
             M_bool_b = 16'h000c;
-            if (M_bool_c != 16'h003a) begin
+            if (M_bool_c != 16'h003f) begin
               M_state_d = WRONG_state;
             end
           end
@@ -75,7 +75,7 @@ module testbool_2 (
             M_bool_alufn = 6'h16;
             M_bool_a = 16'h0027;
             M_bool_b = 16'h000c;
-            if (M_bool_c != 16'h0032) begin
+            if (M_bool_c != 16'h002b) begin
               M_state_d = WRONG_state;
             end
           end
@@ -103,18 +103,18 @@ module testbool_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_state_q <= 1'h0;
+      M_counter_q <= 1'h0;
     end else begin
-      M_state_q <= M_state_d;
+      M_counter_q <= M_counter_d;
     end
   end
   
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_counter_q <= 1'h0;
+      M_state_q <= 1'h0;
     end else begin
-      M_counter_q <= M_counter_d;
+      M_state_q <= M_state_d;
     end
   end
   

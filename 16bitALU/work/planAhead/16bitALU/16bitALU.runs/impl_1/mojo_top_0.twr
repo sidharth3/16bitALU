@@ -1,0 +1,2115 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -o
+mojo_top_0.twr -v 30 -l 30 mojo_top_0_routed.ncd mojo_top_0.pcf
+
+Design file:              mojo_top_0_routed.ncd
+Physical constraint file: mojo_top_0.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 864755 paths analyzed, 244 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  10.889ns.
+--------------------------------------------------------------------------------
+Slack:                  9.111ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.796ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.BMUX    Taxb                  0.310   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X17Y14.D4      net (fanout=2)        0.773   errorTester/adder/diff[1]
+    SLICE_X17Y14.D       Tilo                  0.259   errorTester/adder/Mmux_sum3_rs_A[1]
+                                                       errorTester/adder/Mmux_sum3_A91
+    SLICE_X16Y14.BX      net (fanout=1)        0.511   errorTester/adder/Mmux_sum3_rs_A[1]
+    SLICE_X16Y14.COUT    Tbxcy                 0.156   errorTester/adder/Mmux_sum3_rs_cy[3]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<3>
+    SLICE_X16Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[3]
+    SLICE_X16Y15.CMUX    Tcinc                 0.279   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.796ns (3.413ns logic, 7.383ns route)
+                                                       (31.6% logic, 68.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.225ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.682ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.CMUX    Topbc                 0.650   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<5>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.682ns (3.617ns logic, 7.065ns route)
+                                                       (33.9% logic, 66.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.241ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.666ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.DX      net (fanout=9)        1.032   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tdxcy                 0.121   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.AMUX    Tcina                 0.210   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.A2      net (fanout=1)        0.988   errorTester/adder/diff[12]
+    SLICE_X16Y17.CMUX    Topac                 0.633   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<12>
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.666ns (3.109ns logic, 7.557ns route)
+                                                       (29.1% logic, 70.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.249ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.658ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.DX      net (fanout=9)        1.032   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tdxcy                 0.121   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.AMUX    Tcina                 0.210   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.A2      net (fanout=1)        0.988   errorTester/adder/diff[12]
+    SLICE_X16Y17.CMUX    Topac                 0.625   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_A41
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.658ns (3.101ns logic, 7.557ns route)
+                                                       (29.1% logic, 70.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.250ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.657ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.CX      net (fanout=9)        1.010   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tcxcy                 0.134   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.AMUX    Tcina                 0.210   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.A2      net (fanout=1)        0.988   errorTester/adder/diff[12]
+    SLICE_X16Y17.CMUX    Topac                 0.633   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<12>
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.657ns (3.122ns logic, 7.535ns route)
+                                                       (29.3% logic, 70.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.250ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.657ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.D3      net (fanout=4)        0.410   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.D       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a81
+    SLICE_X18Y12.BX      net (fanout=2)        0.685   errorTester/M_adder_a[1]
+    SLICE_X18Y12.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.CMUX    Topbc                 0.650   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<5>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.657ns (3.533ns logic, 7.124ns route)
+                                                       (33.2% logic, 66.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.258ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.649ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.CX      net (fanout=9)        1.010   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tcxcy                 0.134   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.AMUX    Tcina                 0.210   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.A2      net (fanout=1)        0.988   errorTester/adder/diff[12]
+    SLICE_X16Y17.CMUX    Topac                 0.625   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_A41
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.649ns (3.114ns logic, 7.535ns route)
+                                                       (29.2% logic, 70.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.263ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.644ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.BMUX    Taxb                  0.310   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X17Y14.D4      net (fanout=2)        0.773   errorTester/adder/diff[1]
+    SLICE_X17Y14.D       Tilo                  0.259   errorTester/adder/Mmux_sum3_rs_A[1]
+                                                       errorTester/adder/Mmux_sum3_A91
+    SLICE_X16Y14.BX      net (fanout=1)        0.511   errorTester/adder/Mmux_sum3_rs_A[1]
+    SLICE_X16Y14.COUT    Tbxcy                 0.156   errorTester/adder/Mmux_sum3_rs_cy[3]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<3>
+    SLICE_X16Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[3]
+    SLICE_X16Y15.COUT    Tbyp                  0.093   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.BMUX    Tcinb                 0.310   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X16Y18.C2      net (fanout=2)        1.013   errorTester/M_adder_sumresult[9]
+    SLICE_X16Y18.C       Tilo                  0.255   errorTester/N62
+                                                       errorTester/n0010<15>12
+    SLICE_X16Y18.A1      net (fanout=2)        0.573   errorTester/n0010<15>12
+    SLICE_X16Y18.A       Tilo                  0.254   errorTester/N62
+                                                       errorTester/n0010<15>13
+    SLICE_X16Y20.C5      net (fanout=4)        0.575   errorTester/n0010<15>1
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.644ns (3.528ns logic, 7.116ns route)
+                                                       (33.1% logic, 66.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.265ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.642ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.BMUX    Taxb                  0.310   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X17Y14.D4      net (fanout=2)        0.773   errorTester/adder/diff[1]
+    SLICE_X17Y14.D       Tilo                  0.259   errorTester/adder/Mmux_sum3_rs_A[1]
+                                                       errorTester/adder/Mmux_sum3_A91
+    SLICE_X16Y14.BX      net (fanout=1)        0.511   errorTester/adder/Mmux_sum3_rs_A[1]
+    SLICE_X16Y14.COUT    Tbxcy                 0.156   errorTester/adder/Mmux_sum3_rs_cy[3]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<3>
+    SLICE_X16Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[3]
+    SLICE_X16Y15.COUT    Tbyp                  0.093   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.CMUX    Tcinc                 0.279   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X16Y18.C1      net (fanout=2)        1.042   errorTester/M_adder_sumresult[10]
+    SLICE_X16Y18.C       Tilo                  0.255   errorTester/N62
+                                                       errorTester/n0010<15>12
+    SLICE_X16Y18.A1      net (fanout=2)        0.573   errorTester/n0010<15>12
+    SLICE_X16Y18.A       Tilo                  0.254   errorTester/N62
+                                                       errorTester/n0010<15>13
+    SLICE_X16Y20.C5      net (fanout=4)        0.575   errorTester/n0010<15>1
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.642ns (3.497ns logic, 7.145ns route)
+                                                       (32.9% logic, 67.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.265ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.642ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.CMUX    Topbc                 0.610   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_A131
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.642ns (3.577ns logic, 7.065ns route)
+                                                       (33.6% logic, 66.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.283ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.624ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.BMUX    Taxb                  0.310   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X17Y14.D4      net (fanout=2)        0.773   errorTester/adder/diff[1]
+    SLICE_X17Y14.D       Tilo                  0.259   errorTester/adder/Mmux_sum3_rs_A[1]
+                                                       errorTester/adder/Mmux_sum3_A91
+    SLICE_X16Y14.BX      net (fanout=1)        0.511   errorTester/adder/Mmux_sum3_rs_A[1]
+    SLICE_X16Y14.COUT    Tbxcy                 0.156   errorTester/adder/Mmux_sum3_rs_cy[3]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<3>
+    SLICE_X16Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[3]
+    SLICE_X16Y15.COUT    Tbyp                  0.093   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.BMUX    Tcinb                 0.310   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X17Y17.B1      net (fanout=2)        0.993   errorTester/M_adder_sumresult[9]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.624ns (3.537ns logic, 7.087ns route)
+                                                       (33.3% logic, 66.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.287ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.620ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.AMUX    Tcina                 0.210   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.A2      net (fanout=1)        0.988   errorTester/adder/diff[4]
+    SLICE_X16Y15.CMUX    Topac                 0.633   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<4>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.620ns (3.533ns logic, 7.087ns route)
+                                                       (33.3% logic, 66.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.290ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.617ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.D3      net (fanout=4)        0.410   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.D       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a81
+    SLICE_X18Y12.BX      net (fanout=2)        0.685   errorTester/M_adder_a[1]
+    SLICE_X18Y12.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.CMUX    Topbc                 0.610   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_A131
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.617ns (3.493ns logic, 7.124ns route)
+                                                       (32.9% logic, 67.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.295ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.612ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.AMUX    Tcina                 0.210   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.A2      net (fanout=1)        0.988   errorTester/adder/diff[4]
+    SLICE_X16Y15.CMUX    Topac                 0.625   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_A121
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.612ns (3.525ns logic, 7.087ns route)
+                                                       (33.2% logic, 66.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.312ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.595ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.D3      net (fanout=4)        0.410   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.D       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a81
+    SLICE_X18Y12.BX      net (fanout=2)        0.685   errorTester/M_adder_a[1]
+    SLICE_X18Y12.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.AMUX    Tcina                 0.210   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.A2      net (fanout=1)        0.988   errorTester/adder/diff[4]
+    SLICE_X16Y15.CMUX    Topac                 0.633   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<4>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.595ns (3.449ns logic, 7.146ns route)
+                                                       (32.6% logic, 67.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.320ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.587ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.D3      net (fanout=4)        0.410   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.D       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a81
+    SLICE_X18Y12.BX      net (fanout=2)        0.685   errorTester/M_adder_a[1]
+    SLICE_X18Y12.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.AMUX    Tcina                 0.210   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.A2      net (fanout=1)        0.988   errorTester/adder/diff[4]
+    SLICE_X16Y15.CMUX    Topac                 0.625   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_A121
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X17Y17.B2      net (fanout=2)        1.292   errorTester/M_adder_sumresult[6]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.587ns (3.441ns logic, 7.146ns route)
+                                                       (32.5% logic, 67.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.357ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.550ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.BX      net (fanout=9)        0.840   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.AMUX    Tcina                 0.210   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.A2      net (fanout=1)        0.988   errorTester/adder/diff[12]
+    SLICE_X16Y17.CMUX    Topac                 0.633   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<12>
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.550ns (3.185ns logic, 7.365ns route)
+                                                       (30.2% logic, 69.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.358ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.549ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.COUT    Topcyb                0.483   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<5>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.BMUX    Tcinb                 0.310   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X16Y18.C2      net (fanout=2)        1.013   errorTester/M_adder_sumresult[9]
+    SLICE_X16Y18.C       Tilo                  0.255   errorTester/N62
+                                                       errorTester/n0010<15>12
+    SLICE_X16Y18.A1      net (fanout=2)        0.573   errorTester/n0010<15>12
+    SLICE_X16Y18.A       Tilo                  0.254   errorTester/N62
+                                                       errorTester/n0010<15>13
+    SLICE_X16Y20.C5      net (fanout=4)        0.575   errorTester/n0010<15>1
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.549ns (3.751ns logic, 6.798ns route)
+                                                       (35.6% logic, 64.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.360ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.547ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.COUT    Topcyb                0.483   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<5>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.CMUX    Tcinc                 0.279   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X16Y18.C1      net (fanout=2)        1.042   errorTester/M_adder_sumresult[10]
+    SLICE_X16Y18.C       Tilo                  0.255   errorTester/N62
+                                                       errorTester/n0010<15>12
+    SLICE_X16Y18.A1      net (fanout=2)        0.573   errorTester/n0010<15>12
+    SLICE_X16Y18.A       Tilo                  0.254   errorTester/N62
+                                                       errorTester/n0010<15>13
+    SLICE_X16Y20.C5      net (fanout=4)        0.575   errorTester/n0010<15>1
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.547ns (3.720ns logic, 6.827ns route)
+                                                       (35.3% logic, 64.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.360ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.547ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.DX      net (fanout=9)        1.032   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tdxcy                 0.121   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.BMUX    Tcinb                 0.277   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.B4      net (fanout=1)        0.785   errorTester/adder/diff[13]
+    SLICE_X16Y17.CMUX    Topbc                 0.650   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<13>
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.547ns (3.193ns logic, 7.354ns route)
+                                                       (30.3% logic, 69.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.365ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.542ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.BX      net (fanout=9)        0.840   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.AMUX    Tcina                 0.210   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.A2      net (fanout=1)        0.988   errorTester/adder/diff[12]
+    SLICE_X16Y17.CMUX    Topac                 0.625   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_A41
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.542ns (3.177ns logic, 7.365ns route)
+                                                       (30.1% logic, 69.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.369ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.538ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.CX      net (fanout=9)        1.010   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tcxcy                 0.134   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.BMUX    Tcinb                 0.277   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.B4      net (fanout=1)        0.785   errorTester/adder/diff[13]
+    SLICE_X16Y17.CMUX    Topbc                 0.650   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<13>
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.538ns (3.206ns logic, 7.332ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.378ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.529ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.COUT    Topcyb                0.483   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<5>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.BMUX    Tcinb                 0.310   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X17Y17.B1      net (fanout=2)        0.993   errorTester/M_adder_sumresult[9]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.529ns (3.760ns logic, 6.769ns route)
+                                                       (35.7% logic, 64.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.383ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.524ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.D3      net (fanout=4)        0.410   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.D       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a81
+    SLICE_X18Y12.BX      net (fanout=2)        0.685   errorTester/M_adder_a[1]
+    SLICE_X18Y12.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.COUT    Topcyb                0.483   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<5>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.BMUX    Tcinb                 0.310   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X16Y18.C2      net (fanout=2)        1.013   errorTester/M_adder_sumresult[9]
+    SLICE_X16Y18.C       Tilo                  0.255   errorTester/N62
+                                                       errorTester/n0010<15>12
+    SLICE_X16Y18.A1      net (fanout=2)        0.573   errorTester/n0010<15>12
+    SLICE_X16Y18.A       Tilo                  0.254   errorTester/N62
+                                                       errorTester/n0010<15>13
+    SLICE_X16Y20.C5      net (fanout=4)        0.575   errorTester/n0010<15>1
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.524ns (3.667ns logic, 6.857ns route)
+                                                       (34.8% logic, 65.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.385ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.522ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.D3      net (fanout=4)        0.410   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.D       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a81
+    SLICE_X18Y12.BX      net (fanout=2)        0.685   errorTester/M_adder_a[1]
+    SLICE_X18Y12.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.COUT    Topcyb                0.483   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<5>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.CMUX    Tcinc                 0.279   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X16Y18.C1      net (fanout=2)        1.042   errorTester/M_adder_sumresult[10]
+    SLICE_X16Y18.C       Tilo                  0.255   errorTester/N62
+                                                       errorTester/n0010<15>12
+    SLICE_X16Y18.A1      net (fanout=2)        0.573   errorTester/n0010<15>12
+    SLICE_X16Y18.A       Tilo                  0.254   errorTester/N62
+                                                       errorTester/n0010<15>13
+    SLICE_X16Y20.C5      net (fanout=4)        0.575   errorTester/n0010<15>1
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.522ns (3.636ns logic, 6.886ns route)
+                                                       (34.6% logic, 65.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.400ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.507ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.DX      net (fanout=9)        1.032   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tdxcy                 0.121   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.BMUX    Tcinb                 0.277   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.B4      net (fanout=1)        0.785   errorTester/adder/diff[13]
+    SLICE_X16Y17.CMUX    Topbc                 0.610   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_A51
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.507ns (3.153ns logic, 7.354ns route)
+                                                       (30.0% logic, 70.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.403ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.504ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.D3      net (fanout=4)        0.410   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.D       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a81
+    SLICE_X18Y12.BX      net (fanout=2)        0.685   errorTester/M_adder_a[1]
+    SLICE_X18Y12.COUT    Tbxcy                 0.197   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.BMUX    Tcinb                 0.277   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.B2      net (fanout=1)        0.966   errorTester/adder/diff[5]
+    SLICE_X16Y15.COUT    Topcyb                0.483   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_rs_lut<5>
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.BMUX    Tcinb                 0.310   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X17Y17.B1      net (fanout=2)        0.993   errorTester/M_adder_sumresult[9]
+    SLICE_X17Y17.B       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A5      net (fanout=1)        0.230   errorTester/M_state_q_FSM_FFd2-In17
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.504ns (3.676ns logic, 6.828ns route)
+                                                       (35.0% logic, 65.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.404ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.503ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.AMUX    Tcina                 0.210   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.A2      net (fanout=1)        0.988   errorTester/adder/diff[4]
+    SLICE_X16Y15.COUT    Topcya                0.482   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_A121
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.BMUX    Tcinb                 0.310   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X16Y18.C2      net (fanout=2)        1.013   errorTester/M_adder_sumresult[9]
+    SLICE_X16Y18.C       Tilo                  0.255   errorTester/N62
+                                                       errorTester/n0010<15>12
+    SLICE_X16Y18.A1      net (fanout=2)        0.573   errorTester/n0010<15>12
+    SLICE_X16Y18.A       Tilo                  0.254   errorTester/N62
+                                                       errorTester/n0010<15>13
+    SLICE_X16Y20.C5      net (fanout=4)        0.575   errorTester/n0010<15>1
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.503ns (3.683ns logic, 6.820ns route)
+                                                       (35.1% logic, 64.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.406ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.501ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X17Y12.C2      net (fanout=4)        0.549   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X17Y12.C       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/Mmux_M_adder_a11
+    SLICE_X18Y12.AX      net (fanout=2)        0.487   errorTester/M_adder_a[0]
+    SLICE_X18Y12.COUT    Taxcy                 0.281   errorTester/adder/Msub_diff_cy[3]
+                                                       errorTester/adder/Msub_diff_cy<3>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[3]
+    SLICE_X18Y13.AMUX    Tcina                 0.210   errorTester/adder/Msub_diff_cy[7]
+                                                       errorTester/adder/Msub_diff_cy<7>
+    SLICE_X16Y15.A2      net (fanout=1)        0.988   errorTester/adder/diff[4]
+    SLICE_X16Y15.COUT    Topcya                0.482   errorTester/adder/Mmux_sum3_rs_cy[7]
+                                                       errorTester/adder/Mmux_sum3_A121
+                                                       errorTester/adder/Mmux_sum3_rs_cy<7>
+    SLICE_X16Y16.CIN     net (fanout=1)        0.003   errorTester/adder/Mmux_sum3_rs_cy[7]
+    SLICE_X16Y16.CMUX    Tcinc                 0.279   errorTester/adder/Mmux_sum3_rs_cy[11]
+                                                       errorTester/adder/Mmux_sum3_rs_cy<11>
+    SLICE_X16Y18.C1      net (fanout=2)        1.042   errorTester/M_adder_sumresult[10]
+    SLICE_X16Y18.C       Tilo                  0.255   errorTester/N62
+                                                       errorTester/n0010<15>12
+    SLICE_X16Y18.A1      net (fanout=2)        0.573   errorTester/n0010<15>12
+    SLICE_X16Y18.A       Tilo                  0.254   errorTester/N62
+                                                       errorTester/n0010<15>13
+    SLICE_X16Y20.C5      net (fanout=4)        0.575   errorTester/n0010<15>1
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.501ns (3.652ns logic, 6.849ns route)
+                                                       (34.8% logic, 65.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  9.409ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               seg/ctr/M_ctr_q_4 (FF)
+  Destination:          errorTester/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      10.498ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.058ns (0.596 - 0.654)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: seg/ctr/M_ctr_q_4 to errorTester/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y17.AQ       Tcko                  0.525   seg/ctr/M_ctr_q[7]
+                                                       seg/ctr/M_ctr_q_4
+    SLICE_X17Y12.A1      net (fanout=12)       1.913   M_ctr_q_4
+    SLICE_X17Y12.A       Tilo                  0.259   M_ctr_q_1_3
+                                                       errorTester/M_state_q_FSM_FFd1-In11_1
+    SLICE_X16Y12.D2      net (fanout=4)        0.797   errorTester/M_state_q_FSM_FFd1-In11
+    SLICE_X16Y12.D       Tilo                  0.254   errorTester/M_adder_a<10>11
+                                                       errorTester/M_adder_a<10>1_2
+    SLICE_X18Y14.CX      net (fanout=9)        1.010   errorTester/M_adder_a<10>11
+    SLICE_X18Y14.COUT    Tcxcy                 0.134   errorTester/adder/Msub_diff_cy[11]
+                                                       errorTester/adder/Msub_diff_cy<11>
+    SLICE_X18Y15.CIN     net (fanout=1)        0.003   errorTester/adder/Msub_diff_cy[11]
+    SLICE_X18Y15.BMUX    Tcinb                 0.277   errorTester/adder/diff[15]
+                                                       errorTester/adder/Msub_diff_xor<15>
+    SLICE_X16Y17.B4      net (fanout=1)        0.785   errorTester/adder/diff[13]
+    SLICE_X16Y17.CMUX    Topbc                 0.610   errorTester/M_adder_sumresult[15]
+                                                       errorTester/adder/Mmux_sum3_A51
+                                                       errorTester/adder/Mmux_sum3_rs_xor<15>
+    SLICE_X17Y17.A1      net (fanout=3)        1.199   errorTester/M_adder_sumresult[14]
+    SLICE_X17Y17.A       Tilo                  0.259   errorTester/N38
+                                                       errorTester/M_state_q_FSM_FFd2-In111_SW0
+    SLICE_X16Y20.C2      net (fanout=1)        0.909   errorTester/N28
+    SLICE_X16Y20.C       Tilo                  0.255   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112_SW0
+    SLICE_X16Y20.A1      net (fanout=2)        0.573   errorTester/N43
+    SLICE_X16Y20.A       Tilo                  0.254   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In112
+    SLICE_X16Y20.B6      net (fanout=1)        0.143   errorTester/M_state_q_FSM_FFd2-In1
+    SLICE_X16Y20.CLK     Tas                   0.339   errorTester/M_state_q_FSM_FFd2
+                                                       errorTester/M_state_q_FSM_FFd2-In
+                                                       errorTester/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                     10.498ns (3.166ns logic, 7.332ns route)
+                                                       (30.2% logic, 69.8% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 17.334ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: clk_BUFGP/BUFG/I0
+  Logical resource: clk_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X2Y11.I0
+  Clock network: clk_BUFGP/IBUFG
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_0_IBUF/CLK0
+  Logical resource: M_bMemory_q_0/CLK0
+  Location pin: ILOGIC_X9Y60.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_0_IBUF/SR
+  Logical resource: M_bMemory_q_0/SR
+  Location pin: ILOGIC_X9Y60.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_1_IBUF/CLK0
+  Logical resource: M_bMemory_q_1/CLK0
+  Location pin: ILOGIC_X9Y61.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_1_IBUF/SR
+  Logical resource: M_bMemory_q_1/SR
+  Location pin: ILOGIC_X9Y61.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_2_IBUF/CLK0
+  Logical resource: M_bMemory_q_2/CLK0
+  Location pin: ILOGIC_X10Y62.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_2_IBUF/SR
+  Logical resource: M_bMemory_q_2/SR
+  Location pin: ILOGIC_X10Y62.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_3_IBUF/CLK0
+  Logical resource: M_bMemory_q_3/CLK0
+  Location pin: ILOGIC_X10Y63.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_3_IBUF/SR
+  Logical resource: M_bMemory_q_3/SR
+  Location pin: ILOGIC_X10Y63.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_4_IBUF/CLK0
+  Logical resource: M_bMemory_q_4/CLK0
+  Location pin: ILOGIC_X10Y60.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_4_IBUF/SR
+  Logical resource: M_bMemory_q_4/SR
+  Location pin: ILOGIC_X10Y60.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_5_IBUF/CLK0
+  Logical resource: M_bMemory_q_5/CLK0
+  Location pin: ILOGIC_X10Y61.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_5_IBUF/SR
+  Logical resource: M_bMemory_q_5/SR
+  Location pin: ILOGIC_X10Y61.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_6_IBUF/CLK0
+  Logical resource: M_bMemory_q_6/CLK0
+  Location pin: ILOGIC_X11Y62.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_6_IBUF/SR
+  Logical resource: M_bMemory_q_6/SR
+  Location pin: ILOGIC_X11Y62.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_7_IBUF/CLK0
+  Logical resource: M_bMemory_q_7/CLK0
+  Location pin: ILOGIC_X11Y63.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_7_IBUF/SR
+  Logical resource: M_bMemory_q_7/SR
+  Location pin: ILOGIC_X11Y63.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_8_IBUF/CLK0
+  Logical resource: M_bMemory_q_8/CLK0
+  Location pin: ILOGIC_X11Y61.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_8_IBUF/SR
+  Logical resource: M_bMemory_q_8/SR
+  Location pin: ILOGIC_X11Y61.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_9_IBUF/CLK0
+  Logical resource: M_bMemory_q_9/CLK0
+  Location pin: ILOGIC_X11Y60.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_9_IBUF/SR
+  Logical resource: M_bMemory_q_9/SR
+  Location pin: ILOGIC_X11Y60.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_10_IBUF/CLK0
+  Logical resource: M_aMemory_q_10/CLK0
+  Location pin: ILOGIC_X12Y59.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_10_IBUF/SR
+  Logical resource: M_aMemory_q_10/SR
+  Location pin: ILOGIC_X12Y59.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_11_IBUF/CLK0
+  Logical resource: M_aMemory_q_11/CLK0
+  Location pin: ILOGIC_X12Y58.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_11_IBUF/SR
+  Logical resource: M_aMemory_q_11/SR
+  Location pin: ILOGIC_X12Y58.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_12_IBUF/CLK0
+  Logical resource: M_aMemory_q_12/CLK0
+  Location pin: ILOGIC_X12Y51.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_12_IBUF/SR
+  Logical resource: M_aMemory_q_12/SR
+  Location pin: ILOGIC_X12Y51.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_13_IBUF/CLK0
+  Logical resource: M_aMemory_q_13/CLK0
+  Location pin: ILOGIC_X12Y50.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_13_IBUF/SR
+  Logical resource: M_aMemory_q_13/SR
+  Location pin: ILOGIC_X12Y50.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_14_IBUF/CLK0
+  Logical resource: M_aMemory_q_14/CLK0
+  Location pin: ILOGIC_X12Y49.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |   10.889|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 864755 paths, 0 nets, and 1059 connections
+
+Design statistics:
+   Minimum period:  10.889ns{1}   (Maximum frequency:  91.836MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Tue Nov 05 13:18:22 2019 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 173 MB
+
+
+

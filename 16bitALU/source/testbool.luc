@@ -49,7 +49,7 @@ module testbool (
             bool.a = 16b0000000000100111; //39
             bool.b = 16b0000000000001100; //12
             
-            if (bool.c != 16b0000000000111010) {
+            if (bool.c != 16b0000000000111111) {
               state.d = state.WRONG;
             }
             
@@ -57,7 +57,7 @@ module testbool (
             bool.a = 16b0000000000100111; //39
             bool.b = 16b0000000000001100; //12
             
-            if (bool.c != 16b0000000000110010) {            
+            if (bool.c != 16b0000000000101011) {            
               state.d = state.WRONG;
             }
             

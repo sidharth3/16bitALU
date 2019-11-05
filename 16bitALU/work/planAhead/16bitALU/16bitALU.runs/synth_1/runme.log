@@ -238,8 +238,8 @@ Unit <bitshifter_12> synthesized.
 
 Synthesizing Unit <testbool_2>.
     Related source file is "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhead/16bitALU/16bitALU.srcs/sources_1/imports/verilog/testbool_2.v".
-    Found 4-bit register for signal <M_counter_q>.
     Found 2-bit register for signal <M_state_q>.
+    Found 4-bit register for signal <M_counter_q>.
     Found finite state machine <FSM_0> for signal <M_state_q>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
@@ -268,8 +268,8 @@ INFO:Xst:3210 - "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhea
 INFO:Xst:3210 - "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhead/16bitALU/16bitALU.srcs/sources_1/imports/verilog/testadd_3.v" line 33: Output port <v> of the instance <adder> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhead/16bitALU/16bitALU.srcs/sources_1/imports/verilog/testadd_3.v" line 33: Output port <n> of the instance <adder> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhead/16bitALU/16bitALU.srcs/sources_1/imports/verilog/testadd_3.v" line 33: Output port <car> of the instance <adder> is unconnected or connected to loadless signal.
-    Found 4-bit register for signal <M_test_counter_q>.
     Found 2-bit register for signal <M_state_q>.
+    Found 4-bit register for signal <M_test_counter_q>.
     Found finite state machine <FSM_1> for signal <M_state_q>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
@@ -296,8 +296,8 @@ Unit <testadd_3> synthesized.
 
 Synthesizing Unit <compareTester_4>.
     Related source file is "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhead/16bitALU/16bitALU.srcs/sources_1/imports/verilog/testcmp_4.v".
-    Found 4-bit register for signal <M_counter_q>.
     Found 2-bit register for signal <M_state_q>.
+    Found 4-bit register for signal <M_counter_q>.
     Found finite state machine <FSM_2> for signal <M_state_q>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
@@ -386,8 +386,8 @@ INFO:Xst:3210 - "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhea
 INFO:Xst:3210 - "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhead/16bitALU/16bitALU.srcs/sources_1/imports/verilog/failtests_7.v" line 33: Output port <v> of the instance <adder> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhead/16bitALU/16bitALU.srcs/sources_1/imports/verilog/failtests_7.v" line 33: Output port <n> of the instance <adder> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "C:/Users/sidha/Documents/GitHub/16bitALU/16bitALU/work/planAhead/16bitALU/16bitALU.srcs/sources_1/imports/verilog/failtests_7.v" line 33: Output port <car> of the instance <adder> is unconnected or connected to loadless signal.
-    Found 5-bit register for signal <M_test_counter_q>.
     Found 2-bit register for signal <M_state_q>.
+    Found 5-bit register for signal <M_test_counter_q>.
     Found finite state machine <FSM_4> for signal <M_state_q>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
@@ -813,7 +813,7 @@ Speed Grade: -2
 
    Minimum period: 10.994ns (Maximum Frequency: 90.961MHz)
    Minimum input arrival time before clock: 4.067ns
-   Maximum output required time after clock: 75.889ns
+   Maximum output required time after clock: 75.993ns
    Maximum combinational path delay: 13.363ns
 
 =========================================================================
